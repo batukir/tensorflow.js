@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiple object classification using pre trained COCO-SSD model in TensorFlow.js</title>
+    <meta charset="utf-8">
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css">
+  </head>  
+  <body>
+    <h1>Multiple Object Classification App</h1>                             <!-- h1 heading tag -->
+
+    <p>Wait for the COCO-SSD model to load, and then the "Enable Webcam button" will become visible, and then you can click it!!.</p> <!-- paragraph tag -->
+    
+    <section id="demos" class="invisible">                                    <!-- Defines a section, initally invisible until coco-ssd model loads -->
+
+      <p>After you enable the webcam hold some objects close to your webcam to get a real-time classification! </p>  <!-- paragraph tag -->
+      10%<input type="range" id="slider" name="slider" min="10" max="90" value="10" step="1"/>90%
+      <p>Confidence Prediction Threshold</p>
+      <p>Value: <output id="value"></output>%</p>
+      <div id="liveView" class="camView">                                     <!-- Division(container) tag which will be styled with CSS -->
+        <button id="webcamButton">Enable Webcam</button>                      <!-- Defines a clickable button -->
+        <video id="webcam" autoplay muted width="640" height="480"></video>   <!-- The video tag is used to embed video content in a document --> 
+      </div>
+      <p>Intersection: <output id="intersection"></output></p>
+      <p>Detected 30 second person inactivity: <output id="detected"></output></p>
+    </section>
+
+    <!-- Import TensorFlow.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+    <!-- Load the coco-ssd model to use to recognize things in images -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    
+    <!-- Import the page's JavaScript to do some stuff -->
+    <script src="script.js" defer></script>
+  </body>
+</html>
