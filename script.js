@@ -102,7 +102,7 @@ function predictWebcam() {
     children.splice(0); // Delete the array contents
 
     const timer = window.setTimeout(function () {
-      unattended = true
+      unattended = true;
     }, 10000);
 
     // Check for intersections between objects
@@ -114,25 +114,19 @@ function predictWebcam() {
           // alert(
           //   predictions[i].class + " intersecting with " + predictions[j].class
           // );
-          detected.textContent = "N/A";
-          unattended = false;
+          window.clearTimeout(timer);
         } else {
           intersection.textContent = "N/A";
-          // Detect if there are no intersections 
-          timer
-          window.clearTimeout(timer)
+          // Detect if there are no intersections
+          timer;
         }
-  
       }
       if (predictions[i].class == "person" && unattended == true) {
         detected.textContent = "true";
       }
-      
     }
 
     if (predictions.length == 1) {
-      unattended = false;
-      detected.textContent = "N/A";
       intersection.textContent = "N/A";
     }
 
